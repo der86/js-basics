@@ -235,7 +235,7 @@ function carList (){
 }
 carList();
 
-function myBirthday(){
+function myBirthday(){ //add param to ()
     console.log("Happy birthday to you");
     console.log("Happy birthday to you");
     console.log("Happy birthday to you");
@@ -252,3 +252,136 @@ birthdaySong("Derick", 23)
 
 //global scope and functions
 
+var myGlobal = 10;
+
+function fun1(){
+    oopsGlobal = 5;
+}
+
+function fun2(){
+    var output = "";
+    if(typeof myGlobal != "undefined"){
+        output += "myGlobal: " + oopsGlobal;
+    }
+    if(typeof oopsGlobal != "undefined"){
+        output += " oopsGlobal: " + oopsGlobal;
+    }
+    console.log(output);
+}
+
+fun1();
+fun2();
+
+// 1. Global Variable Declaration
+
+// var oopsGlobal = 10;
+// A global variable oopsGlobal is declared and initialized with the value 10.
+// Since oopsGlobal is declared outside any function, it is accessible throughout the script.
+// 2. Function fun1
+// javascript
+// Copy code
+// function fun1(){
+//     oopsGlobal = 5;
+// }
+// Inside fun1, the global variable oopsGlobal is reassigned the value 5.
+// This means that after calling fun1(), the global oopsGlobal will no longer hold the value 10 but will be 5.
+// 3. Function fun2
+// javascript
+// Copy code
+// function fun2(){
+//     var output = "";
+//     if(typeof myGlobal != "undefined"){
+//         output += "myGlobal: " + oopsGlobal;
+//     }
+//     if(typeof oopsGlobal != "undefined"){
+//         output += " oopsGlobal: " + oopsGlobal;
+//     }
+//     console.log(output);
+// }
+// fun2 defines a local variable output as an empty string.
+
+// The function checks if a variable named myGlobal is defined using the typeof operator.
+// If myGlobal is defined, it appends myGlobal: along with the current value of oopsGlobal to the output string.
+// However, myGlobal is never declared or initialized anywhere in the code, so this block does not execute.
+// Then, it checks if the variable oopsGlobal is defined.
+// Since oopsGlobal is indeed defined (globally), it appends oopsGlobal: and its current value to the output string.
+// Finally, output is logged to the console.
+
+// 4. Function Calls
+// javascript
+// Copy code
+// fun1();
+// fun2();
+// fun1() is called, which changes oopsGlobal from 10 to 5.
+// fun2() is then called, which logs the value of oopsGlobal to the console.
+// Expected Output
+// When fun2() is executed, it will log:
+
+// 
+//  oopsGlobal: 5
+// The output shows oopsGlobal: 5 because fun1() has already changed the value of oopsGlobal to 5.
+// Summary
+// oopsGlobal is a global variable initially set to 10.
+// fun1 modifies oopsGlobal to 5.
+// fun2 checks if certain variables are defined and logs their values. In this case, only oopsGlobal is defined and is logged as 5.
+
+
+// local scope and functions
+
+function localScope (){
+    var myVar = 5
+}
+console.log(myVar)
+// This will return an error because myVar is declared inside the localScope function and is not accessible
+function localScope(){
+    var myVar = 5;
+    console.log(myVar);
+}
+// This will return 5 because myVar is declared inside the localScope function and is accessible within
+
+//Global vs. local scope in Functions
+var outerWear = "T-shirt"; //global variable
+function myOutfit(){
+    var outerWear = "Sweater"; //local variable
+    return outerWear;
+}
+console.log(myOutfit()); //This will return Sweater
+console.log(outerWear); //this will return T-shirt
+
+//Return a value from a Function with return
+function minusSeven(num){
+    return num - 7;
+}
+console.log(minusSeven(10))
+
+function timesSeven(num){
+    return num * 7;
+}
+console.log(timesSeven(7))
+
+
+//Assignment with a return value
+var change = 0
+function change(num){
+    return (num + 5 )/3
+}
+changed = change (10);
+
+
+//Boolean
+// true or false
+function myBoolean (){
+    return true;
+    return false
+}
+
+
+
+// use conditional logic with if statements
+function ourTrueorFalse(isthistrue){
+    if(isthistrue){
+        return "YES, is true";
+    }
+    return "NO, it is false";
+}
+console.log(ourTrueorFalse()) //if we add true inside the bracket the output will be YES, is true. But if we dont add anything the out put will be NO, it is false
